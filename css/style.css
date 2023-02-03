@@ -44,7 +44,7 @@ a {
   border-bottom: 1px solid var(--heading-color);
 }
 
-#main-header .heading-image {
+.heading-image {
   position: absolute;
   width: 299px;
   height: 299px;
