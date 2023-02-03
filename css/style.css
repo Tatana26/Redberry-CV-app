@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("../fonts/HelveticaNeue.ttc");
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f93b1d;
+  --heading-color: #1a1a1a;
+  --btn-color: #6b40e3;
+  --btn-light: #62a1eb;
+  --max-width: 1780px;
+}
+
+.container {
+  margin: auto;
+  overflow: hidden;
+  width: var(--max-width);
+}
+
+body {
+  background: url(../image/shutterstock_2189773743\ 1.png);
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-dark {
+  padding: 18px 126px;
+  background-color: var(--heading-color);
+  color: var(--primary-color);
+  border-radius: 8px;
+  font-size: 20px;
+  position: absolute;
+  top: 513px;
+  left: calc(50% - 464px / 2);
+  font-family: "HelveticaNeue";
+}
+
+#main-header .page-heading {
+  margin-top: 25px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--heading-color);
+}
+
+#main-header .heading-image {
+  position: absolute;
+  width: 299px;
+  height: 299px;
+  left: 1076px;
+  top: 473px;
+}
