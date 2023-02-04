@@ -14,6 +14,7 @@
 
 body {
   font-family: "HelveticaNeue";
+  display: flex;
 }
 
 .container {
@@ -201,4 +202,44 @@ a {
 .general-left .change-page {
   margin-top: 80px;
   float: right;
+}
+
+#general-right .cv-username {
+  display: flex;
+  margin-top: 68px;
+  margin-left: 80px;
+}
+
+#general-right .cv-username .log,
+#general-right .cv-username .surname {
+  font-size: 38px;
+  color: #f93b1d;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+#general-right .cv-username .log {
+  margin-right: 20px;
+}
+
+#general-right .cv-contact {
+  margin-left: 80px;
+  margin-top: 25px;
+}
+
+#general-right .cv-contact p {
+  font-size: 25px;
+  color: var(--heading-color);
+}
+
+#general-right .cv-contact .phone-number {
+  margin-top: 8px;
+}
+#general-right .set-icon img {
+  object-fit: contain;
+  font-size: 20px;
+}
+
+#general-right .set-icon {
+  display: flex;
 }

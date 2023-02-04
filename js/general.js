@@ -1,11 +1,24 @@
-const form = document.querySelector("#form");
-const output = document.querySelector("#general-right");
+const input = document.querySelector(".name");
+const log = document.querySelector(".log");
+const inputSurname = document.getElementById("surname");
+const logSecond = document.querySelector(".surname");
+const inputMail = document.getElementById("email");
+const logMail = document.querySelector(".email");
+const inputPhone = document.getElementById("phone");
+const logPhone = document.querySelector(".phone-number");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.querySelector("#name").value;
-  const surname = document.querySelector("#surname").value;
-  const email = document.querySelector("#email").value;
-  const phone = document.querySelector("#phone").value;
-  output.innerHTML = `Name: ${name} <br> Surname: ${surname} <br> Email: ${email} <br> Phone: ${phone}`;
+input.addEventListener("change", function (e) {
+  log.textContent = e.target.value;
+});
+
+inputSurname.addEventListener("change", function (e) {
+  logSecond.textContent = e.target.value;
+});
+
+inputMail.addEventListener("change", function (e) {
+  logMail.textContent = e.target.value;
+});
+
+inputPhone.addEventListener("change", function (e) {
+  logPhone.textContent = e.target.value;
 });
