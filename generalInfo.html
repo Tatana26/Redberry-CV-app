@@ -5,7 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/general.css" />
     <title>General Info | CV Redberry | mysite |</title>
   </head>
-  <body></body>
+  <body>
+    <div class="general-left">
+      <a class="vector" href="./index.html"
+        ><img src="./image/Vector.png" alt=""
+      /></a>
+      <div class="container">
+        <header id="main-header">
+          <div class="header-heading">
+            <h1>პირადი ინფო</h1>
+            <p>1/3</p>
+          </div>
+        </header>
+        <main>
+          <form action="/" method="/" id="form">
+            <div class="username">
+              <div class="form-box">
+                <label for="name">სახელი</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  pattern="[ა-ჰ]+"
+                  minlength="2"
+                  placeholder="ლაშა"
+                />
+                <p>მინიმუმ 2 ასო, ქართული ასოებით</p>
+              </div>
+              <div class="form-box">
+                <label for="surname">გვარი</label>
+                <input
+                  type="text"
+                  id="surname"
+                  name="surname"
+                  pattern="[ა-ჰ]+"
+                  minlength="2"
+                  placeholder="ტატანაშვილი"
+                />
+                <p>მინიმუმ 2 ასო, ქართული ასოებით</p>
+              </div>
+            </div>
+            <div class="add-photo">
+              <p>პირადი ფოტოს ატვირთვა</p>
+              <button>ატვირთვა</button>
+            </div>
+            <div class="about-info">
+              <label for="message">ჩემს შესახებ (არასავალდებულო)</label>
+              <textarea
+                id="message"
+                placeholder="ზოგადი ინფო შენს შესახებ"
+              ></textarea>
+            </div>
+            <div class="mail-phone">
+              <label for="Mail">ელ.ფოსტა</label>
+              <input type="email" id="email" name="email" />
+              <p>უნდა მთავრდებოდეს @redberry.ge - ით</p>
+            </div>
+            <div class="mail-phone">
+              <label for="phone">მობილურის ნომერი</label>
+              <input type="tel" id="phone" name="phone" />
+              <p>უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
+            </div>
+          </form>
+        </main>
+        <div class="change-page">
+          <a href="./index.html"
+            ><button class="btn-changePG">შემდეგი</button></a
+          >
+        </div>
+      </div>
+    </div>
+    <div id="general-right"></div>
+    <script src="../Redberry-CV-app/js/general.js"></script>
+  </body>
 </html>

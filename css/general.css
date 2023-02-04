@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("../fonts/HelveticaNeue.ttc");
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f93b1d;
+  --heading-color: #1a1a1a;
+  --btn-color: #6b40e3;
+  --btn-light: #62a1eb;
+  --max-width: 800px;
+}
+
+body {
+  font-family: "HelveticaNeue";
+}
+
+.container {
+  overflow: hidden;
+  margin: auto;
+  width: var(--max-width);
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-changePG {
+  padding: 16px 35px;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+  border-radius: 4px;
+  font-size: 18px;
+  border: none;
+}
+.general-left {
+  background-color: #f9f9f9;
+  width: 1098px;
+  height: 100vh;
+}
+
+#main-header {
+  display: flex;
+}
+
+.general-left .vector {
+  width: 9.21px;
+  height: 16px;
+  margin-left: 62px;
+  margin-top: 57px;
+  position: absolute;
+}
+
+#main-header .header-heading {
+  display: flex;
+  justify-content: space-between;
+  /* width: var(--max-width); */
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--heading-color);
+  /* margin-left: 77.79px; */
+}
+
+#main-header .header-heading h1 {
+  width: 179px;
+  height: 29px;
+  margin-top: 47px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+}
+
+#main-header .header-heading p {
+  width: 29px;
+  height: 24px;
+  margin-left: 588px;
+  margin-top: 49px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  margin-right: 57px;
+}
+
+.form-box p {
+  color: #a9a9a9;
+}
+
+.form-box label {
+  width: 371px;
+  height: 21px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 21px;
+  font-family: "HelveticaNeue";
+}
+
+.form-box input {
+  box-sizing: border-box;
+  /* width: 385px; */
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  font-size: 22px;
+  margin: 8px 0;
+  border: 1px solid #bcbcbc;
+}
+
+.username {
+  display: flex;
+  margin-top: 77px;
+}
+
+.username:first-child {
+  /* margin-left: 150px; */
+}
+
+.add-photo {
+  /* margin-left: 150px; */
+  margin-top: 54px;
+  display: flex;
+  align-items: center;
+}
+
+.add-photo p {
+  font-size: 20px;
+  margin-right: 19px;
+  color: var(--heading-color);
+  font-weight: bold;
+  width: ;
+}
+
+.add-photo button {
+  background-color: #0e80bf;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  font-size: 19px;
+  padding: 4px 9px;
+}
+
+.about-info {
+  /* margin-left: 150px; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 54px;
+}
+
+.about-info label {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.about-info textarea {
+  /* width: 798px; */
+  height: 103px;
+  padding: 13px 16px;
+  font-size: 18px;
+  overflow: scroll;
+  resize: none;
+  border: 1px solid #bcbcbc;
+}
+
+.mail-phone {
+  /* margin-left: 150px; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 33px;
+  margin-bottom: 29px;
+}
+
+.mail-phone input {
+  /* width: 822px; */
+  height: 48px;
+  font-size: 20px;
+  border: 1px solid #bcbcbc;
+}
+
+.mail-phone label {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.mail-phone p {
+  margin-top: 8px;
+  color: #a9a9a9;
+}
+
+.general-left .change-page {
+  margin-top: 80px;
+  float: right;
+}
