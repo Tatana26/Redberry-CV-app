@@ -35,6 +35,7 @@ a {
   font-size: 18px;
   border: none;
 }
+
 .general-left {
   background-color: #f9f9f9;
   width: 1098px;
@@ -108,7 +109,7 @@ a {
 
 .form-box input {
   box-sizing: border-box;
-  /* width: 385px; */
+  width: 360px;
   height: 48px;
   background: #ffffff;
   border: 1px solid #bcbcbc;
@@ -116,15 +117,24 @@ a {
   font-size: 22px;
   margin: 8px 0;
   border: 1px solid #bcbcbc;
+  outline: none;
+}
+
+.form-box .input-div {
+  position: relative;
+  width: fit-content;
+}
+
+.form-box .input-icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
 }
 
 .username {
   display: flex;
   margin-top: 77px;
-}
-
-.username:first-child {
-  /* margin-left: 150px; */
 }
 
 .add-photo {
@@ -139,10 +149,9 @@ a {
   margin-right: 19px;
   color: var(--heading-color);
   font-weight: bold;
-  width: ;
 }
 
-.add-photo button {
+.add-photo label {
   background-color: #0e80bf;
   color: var(--primary-color);
   border: none;
@@ -242,4 +251,33 @@ a {
 
 #general-right .set-icon {
   display: flex;
+}
+
+.email,
+.phone-number {
+  display: flex;
+  align-items: center;
+}
+
+.email img,
+.phone-number img {
+  margin-right: 11.67px;
+}
+
+.image-div img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.error {
+  border-color: red !important;
+}
+
+.success {
+  border-color: green !important;
+}
+
+.phone-number {
+  font-size: 25px;
 }

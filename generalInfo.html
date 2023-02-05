@@ -25,6 +25,7 @@
             <div class="username">
               <div class="form-box">
                 <label for="name">სახელი</label>
+                <div class="input-div">
                 <input
                   type="text"
                   id="name"
@@ -33,11 +34,12 @@
                   pattern="[ა-ჰ]+"
                   minlength="2"
                   placeholder="ლაშა"
-                />
+                /><div class="input-icon"></div></div>
                 <p>მინიმუმ 2 ასო, ქართული ასოებით</p>
               </div>
               <div class="form-box">
                 <label for="surname">გვარი</label>
+                <div class="input-div">
                 <input
                   type="text"
                   id="surname"
@@ -45,13 +47,13 @@
                   pattern="[ა-ჰ]+"
                   minlength="2"
                   placeholder="ტატანაშვილი"
-                />
+                /><div class="input-icon"></div></div>
                 <p>მინიმუმ 2 ასო, ქართული ასოებით</p>
               </div>
             </div>
             <div class="add-photo">
               <p>პირადი ფოტოს ატვირთვა</p>
-              <button>ატვირთვა</button>
+              <label><input class="choose-image" type="file" hidden></input>ატვირთვა</label>
             </div>
             <div class="about-info">
               <label for="message">ჩემს შესახებ (არასავალდებულო)</label>
@@ -62,7 +64,9 @@
             </div>
             <div class="mail-phone">
               <label for="Mail">ელ.ფოსტა</label>
-              <input type="email" id="email" name="email" />
+              <div class="input-div">
+              <input type="email" id="email" name="email" /><div class="mail-icon"></div>
+              </div>
               <p>უნდა მთავრდებოდეს @redberry.ge - ით</p>
             </div>
             <div class="mail-phone">
@@ -85,15 +89,11 @@
         <p class="surname"></p>
       </div>
       <div class="cv-contact">
-        <div class="set-icon">
-          <img src="./image/Vector (1).png" alt="" />
-          <p class="email"></p>
-        </div>
-        <div class="set-icon">
-          <img src="./image/Vector (2).png" alt="" />
-          <p class="phone-number"></p>
-        </div>
+        <div class="email"></div>
+        <div class="phone-number"></div>
       </div>
+      <div class="image-div"></div>
+      <div class="about-div"></div>
     </div>
     <script src="./js/general.js"></script>
   </body>
