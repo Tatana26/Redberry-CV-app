@@ -18,6 +18,7 @@ const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
 const mailValue = localStorage.getItem("mailValue") || "";
 const phoneValue = localStorage.getItem("phoneValue") || "";
+const textAreaValue = localStorage.getItem("textAreaValue") || "";
 
 inputName.value = nameValue;
 log.textContent = nameValue;
@@ -27,6 +28,8 @@ inputMail.value = mailValue;
 logMail.textContent = mailValue;
 inputPhone.value = phoneValue;
 logPhone.textContent = phoneValue;
+textArea.value = textAreaValue;
+logTextArea.textContent = textAreaValue;
 
 inputName.addEventListener("input", function (e) {
   const value = e.target.value;
@@ -49,6 +52,7 @@ inputSurname.addEventListener("input", function (e) {
   if (value.length < 3) {
     inputSurname.classList.add("error");
     inputSurname.classList.remove("success");
+    nameIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
   } else {
     inputSurname.classList.remove("error");
     inputSurname.classList.add("success");
@@ -59,6 +63,9 @@ inputSurname.addEventListener("input", function (e) {
 inputMail.addEventListener("input", function (e) {
   const value = e.target.value;
   logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${value}</p>`;
+  if (value === "") {
+    logMail.innerHTML = "";
+  }
   localStorage.setItem("mailValue", e.target.value);
   if (!value.endsWith("@redberry.ge")) {
     inputMail.classList.add("error");
@@ -71,8 +78,18 @@ inputMail.addEventListener("input", function (e) {
 });
 
 inputPhone.addEventListener("input", function (e) {
-  logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${e.target.value}</p>`;
-  localStorage.setItem("phoneValue", e.target.value);
+  const value = e.target.value;
+  logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${value}</p>`;
+  localStorage.setItem("phoneValue", value);
+  if (value === "") {
+    logPhone.innerHTML = "";
+  } else if (!value.startsWith("+995")) {
+    inputPhone.classList.add("error");
+    inputPhone.classList.remove("success");
+  } else if (value.startsWith("+995")) {
+    inputPhone.classList.remove("error");
+    inputPhone.classList.add("success");
+  }
 });
 
 inputImage.addEventListener("change", function () {
@@ -83,5 +100,14 @@ inputImage.addEventListener("change", function () {
     fileReader.addEventListener("load", function () {
       logImage.innerHTML = '<img src="' + this.result + '" />';
     });
+  }
+});
+
+textArea.addEventListener("input", function (e) {
+  const value = e.target.value;
+  logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${e.target.value}</p>`;
+  localStorage.setItem("textAreaValue", value);
+  if (value === "") {
+    logTextArea.textContent = "";
   }
 });
