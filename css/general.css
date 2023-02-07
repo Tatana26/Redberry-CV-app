@@ -14,6 +14,9 @@
 
 body {
   font-family: "HelveticaNeue";
+}
+
+.page-flex {
   display: flex;
 }
 
@@ -110,7 +113,7 @@ a {
   height: 21px;
   font-family: "Helvetica Neue";
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 24px;
   line-height: 21px;
   font-family: "HelveticaNeue";
@@ -242,7 +245,8 @@ a {
 
 .mail-phone label {
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .mail-phone p {
@@ -281,7 +285,7 @@ a {
 }
 
 #general-right .cv-info p {
-  font-size: 22px;
+  font-size: 25px;
 }
 
 #general-right .cv-info .phone-number {
@@ -324,14 +328,14 @@ a {
 }
 
 .cv .cv-info .about-div {
-  width: 432px;
+  max-width: 432px;
 }
 
 .cv .cv-info .about-div p {
   font-size: 20px;
   margin-top: 15px;
-  max-width: fit-content;
-  line-height: 22px;
+  line-height: 25px;
+  word-break: break-all;
 }
 
 .cv .cv-info .about-div h1 {

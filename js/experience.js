@@ -1,15 +1,99 @@
-// const log = document.querySelector(".log");
-// const logSecond = document.querySelector(".surname");
-// const logMail = document.querySelector(".email");
+const log = document.querySelector(".log");
+const logSecond = document.querySelector(".surname");
+const logMail = document.querySelector(".email");
+const logPhone = document.querySelector(".phone-number");
+const logImage = document.querySelector(".image-div");
+const logTextArea = document.querySelector(".about-div");
+const inputMail = document.getElementById("email");
+const textArea = document.getElementById("message");
+const positionInput = document.querySelector(".position-input");
+const logPosition = document.querySelector(".log-position");
+const positionIcon = document.querySelector(".position-input-icon");
+const positionLabel = document.querySelector(".position-label");
+const employerInput = document.querySelector(".employer-input");
+const logEmployer = document.querySelector(".log-employer");
+const employerIcon = document.querySelector(".employer-input-icon");
+const employerLabel = document.querySelector(".employer-label");
 
-// const nameValue = localStorage.getItem("nameValue") || "";
-// const surnameValue = localStorage.getItem("surnameValue") || "";
-// const mailValue = localStorage.getItem("mailValue") || "";
-// const phoneValue = localStorage.getItem("phoneValue") || "";
-// const textAreaValue = localStorage.getItem("textAreaValue") || "";
+const nameValue = localStorage.getItem("nameValue") || "";
+const surnameValue = localStorage.getItem("surnameValue") || "";
+const mailValue = localStorage.getItem("mailValue") || "";
+const phoneValue = localStorage.getItem("phoneValue") || "";
+const textAreaValue = localStorage.getItem("textAreaValue") || "";
+const positionValue = localStorage.getItem("positionValue") || "";
+const employerValue = localStorage.getItem("employerValue") || "";
 
-// log.textContent = nameValue;
-// logSecond.textContent = surnameValue;
-// logMail.textContent = mailValue;
-// logPhone.textContent = phoneValue;
-// logTextArea.textContent = textAreaValue;
+log.textContent = nameValue;
+logSecond.textContent = surnameValue;
+logMail.textContent = mailValue;
+logPhone.textContent = phoneValue;
+logTextArea.textContent = textAreaValue;
+positionInput.value = positionValue;
+logPosition.textContent = positionValue;
+employerInput.value = employerValue;
+logEmployer.textContent = employerValue;
+
+const leftSide = document.querySelector(".general-left");
+const addMoreInfo = document.querySelector("#more-info");
+const additionalInfo = document.querySelector(".additional-info");
+
+addMoreInfo.addEventListener("click", function () {
+  additionalInfo.style.display = "block";
+  leftSide.style.height = "160vh";
+});
+
+window.addEventListener("load", function () {
+  const mailValue = localStorage.getItem("mailValue");
+  if (mailValue) {
+    logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${mailValue}</p>`;
+  }
+
+  const phoneValue = localStorage.getItem("phoneValue");
+  if (phoneValue) {
+    logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
+  }
+
+  const imageDataURL = localStorage.getItem("imageDataURL");
+  if (imageDataURL) {
+    logImage.innerHTML = '<img src="' + imageDataURL + '" />';
+  }
+
+  const textAreaValue = localStorage.getItem("textAreaValue");
+  if (textAreaValue) {
+    logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${textAreaValue}</p>`;
+  }
+});
+
+positionInput.addEventListener("input", function (e) {
+  const value = e.target.value;
+  logPosition.textContent = value;
+  localStorage.setItem("positionValue", e.target.value);
+  if (value.length < 2) {
+    positionInput.classList.add("error");
+    positionInput.classList.remove("success");
+    positionIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
+    positionLabel.classList.add("error-label");
+  } else {
+    positionInput.classList.remove("error");
+    positionInput.classList.add("success");
+    positionIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
+    positionLabel.classList.remove("error-label");
+  }
+});
+
+employerInput.addEventListener("input", function (e) {
+  const value = e.target.value;
+  logEmployer.textContent = value;
+  localStorage.setItem("positionValue", e.target.value);
+  if (value.length < 2) {
+    employerInput.classList.add("error");
+    employerInput.classList.remove("success");
+    employerIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
+    employerLabel.classList.add("error-label");
+  } else {
+    employerInput.classList.remove("error");
+    employerInput.classList.add("success");
+    employerIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
+    employerLabel.classList.remove("error-label");
+  }
+});

@@ -1,0 +1,163 @@
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f93b1d;
+  --heading-color: #1a1a1a;
+  --btn-color: #6b40e3;
+  --btn-light: #62a1eb;
+  --max-width: 800px;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-add {
+  color: var(--primary-color);
+  background-color: var(--btn-light);
+  padding: 14px 21px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 45px;
+  font-size: 20px;
+}
+
+.underline-left {
+  width: 798px;
+  height: 1px;
+  background-color: #a9a9a9;
+  margin-top: 59px;
+}
+
+.general-left .position {
+  margin-top: 77px;
+  display: flex;
+  flex-direction: column;
+}
+
+.general-left .position label {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.general-left .position input {
+  width: 794px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  outline: none;
+  font-size: 22px;
+}
+
+.general-left .position p {
+  color: #a9a9a9;
+  margin-top: 8px;
+}
+
+.general-left .employer {
+  margin-top: 31px;
+  display: flex;
+  flex-direction: column;
+}
+
+.general-left .employer label {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.general-left .employer input {
+  width: 794px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  outline: none;
+  font-size: 22px;
+}
+
+.general-left .employer p {
+  color: #a9a9a9;
+  margin-top: 8px;
+}
+
+.general-left .work-date {
+  display: flex;
+  margin-top: 31px;
+  justify-content: space-between;
+}
+
+.general-left .work-date .date-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.general-left .work-date .date-box label {
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.general-left .work-date .date-box input {
+  width: 340px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  outline: none;
+  font-size: 22px;
+  padding: 0 14px;
+}
+
+.general-left .about-work {
+  margin-top: 33px;
+  display: flex;
+  flex-direction: column;
+}
+
+.general-left .about-work label {
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.general-left .about-work textarea {
+  height: 103px;
+  padding: 13px 16px;
+  font-size: 22px;
+  overflow: scroll;
+  resize: none;
+  border: 1px solid #bcbcbc;
+  outline: none;
+}
+
+.general-left .change-page-buttons {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.general-left .position-input-div {
+  position: relative;
+  width: fit-content;
+}
+
+.general-left .position-input-div .position-input-icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.general-left .employer-input-div {
+  position: relative;
+  width: fit-content;
+}
+
+.general-left .employer-input-div .employer-input-icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}
