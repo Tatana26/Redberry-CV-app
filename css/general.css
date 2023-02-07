@@ -17,6 +17,18 @@ body {
   display: flex;
 }
 
+.error-label {
+  color: red;
+}
+
+.error {
+  border-color: red !important;
+}
+
+.success {
+  border-color: green !important;
+}
+
 .container {
   overflow: hidden;
   margin: auto;
@@ -57,10 +69,8 @@ a {
 #main-header .header-heading {
   display: flex;
   justify-content: space-between;
-  /* width: var(--max-width); */
   padding-bottom: 12px;
   border-bottom: 1px solid var(--heading-color);
-  /* margin-left: 77.79px; */
 }
 
 #main-header .header-heading h1 {
@@ -77,11 +87,10 @@ a {
 #main-header .header-heading p {
   width: 29px;
   height: 24px;
-  margin-left: 588px;
+  margin-left: 580px;
   margin-top: 49px;
   font-family: "Helvetica Neue";
   font-style: normal;
-  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
 }
@@ -132,13 +141,47 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.form-box .surname-input-div {
+  position: relative;
+  width: fit-content;
+}
+
+.form-box .surname-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.mail-input-div {
+  position: relative;
+}
+
+.mail-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.phone-input-div {
+  position: relative;
+  width: fit-content;
+}
+
+.phone-icon {
+  position: absolute;
+  top: 38%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+}
+
 .username {
   display: flex;
   margin-top: 77px;
 }
 
 .add-photo {
-  /* margin-left: 150px; */
   margin-top: 54px;
   display: flex;
   align-items: center;
@@ -161,7 +204,6 @@ a {
 }
 
 .about-info {
-  /* margin-left: 150px; */
   display: flex;
   flex-direction: column;
   margin-top: 54px;
@@ -174,17 +216,16 @@ a {
 }
 
 .about-info textarea {
-  /* width: 798px; */
   height: 103px;
   padding: 13px 16px;
   font-size: 18px;
   overflow: scroll;
   resize: none;
   border: 1px solid #bcbcbc;
+  outline: none;
 }
 
 .mail-phone {
-  /* margin-left: 150px; */
   display: flex;
   flex-direction: column;
   margin-top: 33px;
@@ -192,10 +233,11 @@ a {
 }
 
 .mail-phone input {
-  /* width: 822px; */
+  width: 794px;
   height: 48px;
   font-size: 20px;
   border: 1px solid #bcbcbc;
+  outline: none;
 }
 
 .mail-phone label {
@@ -212,86 +254,95 @@ a {
   margin-top: 80px;
   float: right;
 }
+#general-right .cv {
+  margin-left: 80px;
+  margin-top: 65px;
+  display: flex;
+}
 
 #general-right .cv-username {
   display: flex;
-  margin-top: 68px;
-  margin-left: 80px;
-}
-
-#general-right .cv-username .log,
-#general-right .cv-username .surname {
-  font-size: 38px;
-  color: #f93b1d;
-  font-weight: bold;
-  letter-spacing: -2px;
 }
 
 #general-right .cv-username .log {
   margin-right: 20px;
 }
 
-#general-right .cv-contact {
-  margin-left: 80px;
-  margin-top: 25px;
+#general-right .cv-info {
+  width: 450px;
 }
 
-#general-right .cv-contact p {
-  font-size: 25px;
-  color: var(--heading-color);
+#general-right .cv-info .log,
+#general-right .cv-info .surname {
+  font-size: 34px;
+  color: #f93b1d;
+  font-weight: bold;
+  letter-spacing: -2px;
 }
 
-#general-right .cv-contact .phone-number {
+#general-right .cv-info p {
+  font-size: 22px;
+}
+
+#general-right .cv-info .phone-number {
   margin-top: 8px;
 }
-#general-right .set-icon img {
-  object-fit: contain;
-  font-size: 20px;
+
+.cv-info .email {
+  margin-top: 17px;
 }
 
-#general-right .set-icon {
-  display: flex;
+.cv-info .phone-number {
+  margin-bottom: 34px;
 }
 
-.email,
-.phone-number {
+.cv-info .email,
+.cv-info .phone-number {
   display: flex;
   align-items: center;
 }
 
-.email img,
-.phone-number img {
+.cv-info .email img,
+.cv-info .phone-number img {
   margin-right: 11.67px;
 }
 
-.image-div img {
+.cv .cv-username-img .image-div img {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
-}
-
-.error {
-  border-color: red !important;
-}
-
-.success {
-  border-color: green !important;
-}
-
-.phone-number {
-  font-size: 25px;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
 
 .about-div {
   display: flex;
   flex-direction: column;
+}
+
+.cv-info .about-div h1 {
+  font-size: 27px;
+}
+
+.cv .cv-info .about-div {
+  width: 432px;
+}
+
+.cv .cv-info .about-div p {
+  font-size: 20px;
+  margin-top: 15px;
+  max-width: fit-content;
+  line-height: 22px;
+}
+
+.cv .cv-info .about-div h1 {
+  font-size: 27px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+.underline {
+  height: 1px;
+  width: 662px;
+  background-color: #a9a9a9;
   margin-left: 80px;
-}
-
-.about-div h1 {
-  font-size: 23px;
-}
-
-.about-div p {
-  font-size: 50px;
+  margin-top: 50px;
 }

@@ -24,7 +24,7 @@
           <form action="/" method="/" id="form">
             <div class="username">
               <div class="form-box">
-                <label for="name">სახელი</label>
+                <label class="name-label" for="name">სახელი</label>
                 <div class="input-div">
                 <input
                   type="text"
@@ -38,8 +38,8 @@
                 <p>მინიმუმ 2 ასო, ქართული ასოებით</p>
               </div>
               <div class="form-box">
-                <label for="surname">გვარი</label>
-                <div class="input-div">
+                <label class="surname-label" for="surname">გვარი</label>
+                <div class="surname-input-div">
                 <input
                   type="text"
                   id="surname"
@@ -47,53 +47,58 @@
                   pattern="[ა-ჰ]+"
                   minlength="2"
                   placeholder="ტატანაშვილი"
-                /><div class="input-icon"></div></div>
+                /><div class="surname-icon"></div></div>
                 <p>მინიმუმ 2 ასო, ქართული ასოებით</p>
               </div>
             </div>
             <div class="add-photo">
               <p>პირადი ფოტოს ატვირთვა</p>
-              <label><input class="choose-image" type="file" hidden></input>ატვირთვა</label>
+              <label><input class="choose-image" type="file" hidden required>ატვირთვა</label>
             </div>
             <div class="about-info">
-              <label for="message">ჩემს შესახებ (არასავალდებულო)</label>
+              <label class="about-label" for="message">ჩემს შესახებ (არასავალდებულო)</label>
               <textarea
                 id="message"
                 placeholder="ზოგადი ინფო შენს შესახებ"
               ></textarea>
             </div>
             <div class="mail-phone">
-              <label for="Mail">ელ.ფოსტა</label>
-              <div class="input-div">
-              <input type="email" id="email" name="email" /><div class="mail-icon"></div>
+              <label class="mail-label" for="Mail">ელ.ფოსტა</label>
+              <div class="mail-input-div">
+              <input  type="email" id="email" name="email" /><div class="mail-icon"></div>
               </div>
               <p>უნდა მთავრდებოდეს @redberry.ge - ით</p>
             </div>
             <div class="mail-phone">
-              <label for="phone">მობილურის ნომერი</label>
-              <input type="tel" id="phone" name="phone" />
+              <label class="phone-label" for="phone">მობილურის ნომერი</label>
+              <div class="phone-input-div">
+              <input type="tel" id="phone" name="phone" /><div class="phone-icon"></div>
               <p>უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
             </div>
           </form>
         </main>
         <div class="change-page">
-          <a href="./index.html"
+          <a href="./experience.html"
             ><button class="btn-changePG">შემდეგი</button></a
           >
         </div>
       </div>
     </div>
     <div id="general-right">
-      <div class="cv-username">
-        <p class="log"></p>
-        <p class="surname"></p>
+      <div class="cv">
+        <div class="cv-info">
+          <div class="cv-username">
+            <p class="log"></p>
+            <p class="surname"></p>
+          </div>
+          <div class="email"></div>
+          <div class="phone-number"></div>
+          <div class="about-div"></div>
+        </div>
+        <div class="cv-username-img">
+          <div class="image-div"></div>
+        </div>
       </div>
-      <div class="cv-contact">
-        <div class="email"></div>
-        <div class="phone-number"></div>
-      </div>
-      <div class="image-div"></div>
-      <div class="about-div"></div>
     </div>
     <script src="./js/general.js"></script>
   </body>
