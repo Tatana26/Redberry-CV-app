@@ -14,6 +14,14 @@ const employerInput = document.querySelector(".employer-input");
 const logEmployer = document.querySelector(".log-employer");
 const employerIcon = document.querySelector(".employer-input-icon");
 const employerLabel = document.querySelector(".employer-label");
+const clearStorage = document.querySelector(".vector");
+const inputDateFirst = document.querySelector(".date-first");
+const logDateFirst = document.querySelector(".log-date-first");
+const inputDateSecond = document.querySelector(".date-second");
+const logDateSecond = document.querySelector(".log-date-second");
+const inputSecondTextarea = document.querySelector(".about-work");
+const logSecondTextarea = document.querySelector(".log-second-about");
+const logPositionHeading = document.querySelector(".position-heading");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -22,6 +30,9 @@ const phoneValue = localStorage.getItem("phoneValue") || "";
 const textAreaValue = localStorage.getItem("textAreaValue") || "";
 const positionValue = localStorage.getItem("positionValue") || "";
 const employerValue = localStorage.getItem("employerValue") || "";
+const dateFirstValue = localStorage.getItem("dateFirstValue") || "";
+const dateSecondValue = localStorage.getItem("dateSecondValue") || "";
+const secondTextareaValue = localStorage.getItem("secondTextareaValue") || "";
 
 log.textContent = nameValue;
 logSecond.textContent = surnameValue;
@@ -32,6 +43,12 @@ positionInput.value = positionValue;
 logPosition.textContent = positionValue;
 employerInput.value = employerValue;
 logEmployer.textContent = employerValue;
+inputDateFirst.value = dateFirstValue;
+logDateFirst.textContent = dateFirstValue;
+inputDateSecond.value = dateSecondValue;
+logDateSecond.textContent = dateSecondValue;
+inputSecondTextarea.value = secondTextareaValue;
+logSecondTextarea.textContent = secondTextareaValue;
 
 const leftSide = document.querySelector(".general-left");
 const addMoreInfo = document.querySelector("#more-info");
@@ -62,11 +79,21 @@ window.addEventListener("load", function () {
   if (textAreaValue) {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${textAreaValue}</p>`;
   }
+
+  const positionValue = localStorage.getItem("positionValue");
+  if (positionValue) {
+    logPositionHeading.innerHTML = `<h1>გამოცდილება</h1>`;
+  }
 });
 
 positionInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logPosition.textContent = value;
+  if (value === "") {
+    logPositionHeading.innerHTML = "";
+  } else {
+    logPositionHeading.innerHTML = `<h1>გამოცდილება</h1>`;
+  }
   localStorage.setItem("positionValue", e.target.value);
   if (value.length < 2) {
     positionInput.classList.add("error");
@@ -84,7 +111,7 @@ positionInput.addEventListener("input", function (e) {
 employerInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logEmployer.textContent = value;
-  localStorage.setItem("positionValue", e.target.value);
+  localStorage.setItem("employerValue", e.target.value);
   if (value.length < 2) {
     employerInput.classList.add("error");
     employerInput.classList.remove("success");
@@ -96,4 +123,26 @@ employerInput.addEventListener("input", function (e) {
     employerIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     employerLabel.classList.remove("error-label");
   }
+});
+
+inputDateFirst.addEventListener("input", function (e) {
+  const value = e.target.value;
+  logDateFirst.textContent = value;
+  localStorage.setItem("dateFirstValue", value);
+});
+
+inputDateSecond.addEventListener("input", function (e) {
+  const value = e.target.value;
+  logDateSecond.textContent = value;
+  localStorage.setItem("dateSecondValue", value);
+});
+
+inputSecondTextarea.addEventListener("input", function (e) {
+  const value = e.target.value;
+  logSecondTextarea.textContent = value;
+  localStorage.setItem("secondTextareaValue", value);
+});
+
+clearStorage.addEventListener("click", function () {
+  localStorage.clear();
 });

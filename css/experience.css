@@ -161,3 +161,67 @@
   right: 5px;
   transform: translate(-50%, -50%);
 }
+
+#general-right .cv-part-second {
+  margin-top: 19px;
+  display: flex;
+  flex-direction: column;
+}
+
+#general-right .cv-part-second .position-employer p {
+  font-size: 20px;
+}
+
+#general-right .cv-part-second .position-employer {
+  margin-left: 80px;
+  margin-top: 24px;
+}
+
+#general-right .cv-part-second .position-employer .positioning-date {
+  display: flex;
+}
+
+#general-right
+  .cv-part-second
+  .position-employer
+  .positioning-date
+  .log-position {
+  margin-right: 7px;
+}
+
+#general-right .cv-part-second .position-heading h1 {
+  font-size: 25px;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#general-right .cv-part-second .position-employer .log-position,
+#general-right .cv-part-second .position-employer .log-employer {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#general-right .cv-part-second .log-date {
+  display: flex;
+  margin-left: 80px;
+  margin-top: 7px;
+}
+
+#general-right .cv-part-second .log-date .log-date-first {
+  margin-right: 7px;
+}
+
+#general-right .cv-part-second .log-date .log-date-first,
+#general-right .cv-part-second .log-date .log-date-second {
+  color: #a9a9a9;
+}
+
+#general-right .cv-part-second .log-second-about {
+  margin-left: 80px;
+  margin-top: 16px;
+  width: 600px;
+  line-height: 22px;
+  font-size: 23px;
+  word-break: break-all;
+}
