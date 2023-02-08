@@ -1,0 +1,143 @@
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f93b1d;
+  --heading-color: #1a1a1a;
+  --btn-color: #6b40e3;
+  --btn-light: #62a1eb;
+  --error-color: #e52f2f;
+  --success-color: #98e37e;
+  --undernline-text: #a9a9a9;
+  --max-width: 800px;
+}
+
+.general-left .forms .education-place {
+  display: flex;
+  flex-direction: column;
+  margin-top: 77px;
+}
+
+.general-left .forms .education-place input {
+  width: 794px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  margin: 8px 0;
+  font-size: 22px;
+  outline: none;
+}
+
+.general-left .forms .education-place label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.general-left .forms .education-place p {
+  color: var(--undernline-text);
+}
+
+.general-left .education-place-div {
+  position: relative;
+  width: fit-content;
+}
+
+.general-left .education-place-div .education-place-icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.general-left .quality-date {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 31px;
+}
+
+.general-left .quality-date .quality,
+.general-left .quality-date .end-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.general-left .quality-date .quality select,
+.general-left .quality-date .end-date input {
+  width: 360px;
+  height: 48px;
+  margin-top: 8px;
+  outline: none;
+  font-size: 22px;
+}
+
+.general-left .quality-date .end-date input {
+  padding: 0 14px;
+}
+
+.general-left .quality-date .quality label,
+.general-left .quality-date .end-date label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.general-left .forms .text-area-third {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.general-left .forms .text-area-third textarea {
+  width: 785px;
+  height: 179px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  overflow: scroll;
+  resize: none;
+  outline: none;
+  margin-top: 8px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+.general-left .forms .text-area-third label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#general-right .cv-part-third {
+  margin-top: 32px;
+}
+
+#general-right .cv-part-third .education-place-header {
+  margin-left: 80px;
+  margin-top: 26px;
+}
+
+#general-right .cv-part-third .education-place-header h1 {
+  color: var(--secondary-color);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#general-right .cv-part-third .quality-place {
+  margin-left: 80px;
+  margin-top: 15px;
+  display: flex;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#general-right .cv-part-third .log-quality-date {
+  margin-left: 80px;
+  margin-top: 7px;
+  color: var(--undernline-text);
+}
+
+#general-right .cv-part-third .log-third-area {
+  margin-left: 80px;
+  margin-top: 16px;
+  width: 600px;
+  line-height: 22px;
+  font-size: 23px;
+  word-break: break-all;
+}

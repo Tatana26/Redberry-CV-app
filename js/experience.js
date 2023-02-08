@@ -22,6 +22,10 @@ const logDateSecond = document.querySelector(".log-date-second");
 const inputSecondTextarea = document.querySelector(".about-work");
 const logSecondTextarea = document.querySelector(".log-second-about");
 const logPositionHeading = document.querySelector(".position-heading");
+const leftSide = document.querySelector(".general-left");
+const addMoreInfo = document.querySelector("#more-info");
+const additionalInfo = document.querySelector(".additional-info");
+const forms = document.querySelector(".forms");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -50,14 +54,12 @@ logDateSecond.textContent = dateSecondValue;
 inputSecondTextarea.value = secondTextareaValue;
 logSecondTextarea.textContent = secondTextareaValue;
 
-const leftSide = document.querySelector(".general-left");
-const addMoreInfo = document.querySelector("#more-info");
-const additionalInfo = document.querySelector(".additional-info");
-
-addMoreInfo.addEventListener("click", function () {
-  additionalInfo.style.display = "block";
-  leftSide.style.height = "160vh";
-});
+// addMoreInfo.addEventListener("click", function () {
+//   forms.insertAdjacentHTML(
+//     "beforeend",
+//     '<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>'
+//   );
+// });
 
 window.addEventListener("load", function () {
   const mailValue = localStorage.getItem("mailValue");
@@ -88,7 +90,7 @@ window.addEventListener("load", function () {
 
 positionInput.addEventListener("input", function (e) {
   const value = e.target.value;
-  logPosition.textContent = value;
+  logPosition.innerHTML = `${value}${value && ","}`;
   if (value === "") {
     logPositionHeading.innerHTML = "";
   } else {

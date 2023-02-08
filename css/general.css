@@ -9,6 +9,8 @@
   --heading-color: #1a1a1a;
   --btn-color: #6b40e3;
   --btn-light: #62a1eb;
+  --error-color: #e52f2f;
+  --success-color: #98e37e;
   --max-width: 800px;
 }
 
@@ -21,15 +23,15 @@ body {
 }
 
 .error-label {
-  color: red;
+  color: var(--error-color);
 }
 
 .error {
-  border-color: red !important;
+  border-color: var(--error-color) !important;
 }
 
 .success {
-  border-color: green !important;
+  border-color: var(--success-color) !important;
 }
 
 .container {
@@ -105,7 +107,7 @@ a {
 }
 
 .form-box p {
-  color: #a9a9a9;
+  color: var(--undernline-text);
 }
 
 .form-box label {
@@ -279,7 +281,7 @@ a {
 #general-right .cv-info .log,
 #general-right .cv-info .surname {
   font-size: 34px;
-  color: #f93b1d;
+  color: var(--secondary-color);
   font-weight: bold;
   letter-spacing: -2px;
 }

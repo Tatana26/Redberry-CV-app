@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/experience.css" />
+    <link rel="stylesheet" href="./css/education.css" />
     <title>General Info | CV Redberry | mysite |</title>
   </head>
   <body>
@@ -18,62 +19,52 @@
         <div class="container">
           <header id="main-header">
             <div class="header-heading">
-              <h1>გამოცდილება</h1>
-              <p>2/3</p>
+              <h1>განათლება</h1>
+              <p>3/3</p>
             </div>
           </header>
           <main>
             <div class="forms">
               <form action="">
-                <div class="position">
-                  <label class="position-label" for="experience"
-                    >თანამდებობა</label
+                <div class="education-place">
+                  <label class="education-label" for="education-place"
+                    >სასწავლებელი</label
                   >
-                  <div class="position-input-div">
-                    <input type="text" class="position-input" />
-                    <div class="position-input-icon"></div>
+                  <div class="education-place-div">
+                    <input type="text" class="education" />
+                    <div class="education-place-icon"></div>
                   </div>
                   <p>მინიმუმ 2 სიმბოლო</p>
                 </div>
-                <div class="employer">
-                  <label class="employer-label" for="employer"
-                    >დამსაქმებელი</label
-                  >
-                  <div class="employer-input-div">
-                    <input type="text" class="employer-input" />
-                    <div class="employer-input-icon"></div>
+                <div class="quality-date">
+                  <div class="quality">
+                    <label for="">ხარისხი</label>
+                    <select class="select-quality" name="" id="">
+                      <option value="" disabled selected>აირჩიე ხარისხი</option>
+                    </select>
                   </div>
-                  <p>მინიმუმ ორი სიმბოლო</p>
-                </div>
-                <div class="work-date">
-                  <div class="start-date date-box">
-                    <label for="date">დაწყების რიცხვი</label>
-                    <input type="date" class="date-first" />
-                  </div>
-                  <div class="end-date date-box">
-                    <label for="date">დამთავრების რიცხვი</label>
-                    <input type="date" class="date-second" />
+                  <div class="end-date">
+                    <label for="">დამთავრების რიცხვი</label>
+                    <input type="date" class="quality-end-date" />
                   </div>
                 </div>
-                <div class="about-work">
-                  <label for="about">აღწერა</label>
-                  <textarea id="about-work"></textarea>
+                <div class="text-area-third">
+                  <label for="">აღწერა</label>
+                  <textarea name="" id="" class="third-area-input"></textarea>
                 </div>
               </form>
             </div>
             <div class="underline-left"></div>
             <div class="add-info-button">
               <button id="more-info" class="btn-add">
-                მეტი გამოცდილების დამატება
+                სხვა სასწავლებლის დამატება
               </button>
             </div>
             <div class="change-page-buttons">
-              <a href="./generalInfo.html"
+              <a href="./experience.html"
                 ><button class="btn-changePG">უკან</button></a
               >
-              <a href="./education.html"
-                ><button class="btn-changePG">შემდეგი</button></a
-              >
+              <button class="btn-changePG end-btn">დასრულება</button>
             </div>
           </main>
         </div>
@@ -108,8 +99,18 @@
           </div>
           <div class="log-second-about"></div>
         </div>
+        <div class="cv-part-third">
+          <div class="underline"></div>
+          <div class="education-place-header"></div>
+          <div class="quality-place">
+            <div class="log-quality"></div>
+            <div class="log-education-place"></div>
+          </div>
+          <div class="log-quality-date"></div>
+          <div class="log-third-area"></div>
+        </div>
       </div>
     </div>
-    <script src="./js/experience.js"></script>
+    <script src="./js/education.js"></script>
   </body>
 </html>
