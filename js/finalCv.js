@@ -32,6 +32,7 @@ const educationPlaceValue = localStorage.getItem("educationPlaceValue") || "";
 const qualityValue = localStorage.getItem("qualityValue") || "";
 const qualityDateValue = localStorage.getItem("qualityDateValue") || "";
 const thirdAreaVlue = localStorage.getItem("thirdAreaVlue") || "";
+const imageDataURL = localStorage.getItem("imageDataURL") || "";
 
 log.textContent = nameValue;
 logSecond.textContent = surnameValue;
@@ -57,7 +58,6 @@ window.addEventListener("load", function () {
     logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
   }
 
-  const imageDataURL = localStorage.getItem("imageDataURL");
   if (imageDataURL) {
     logImage.innerHTML = '<img src="' + imageDataURL + '" />';
   }

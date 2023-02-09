@@ -27,6 +27,7 @@ const surnameValue = localStorage.getItem("surnameValue") || "";
 const mailValue = localStorage.getItem("mailValue") || "";
 const phoneValue = localStorage.getItem("phoneValue") || "";
 const textAreaValue = localStorage.getItem("textAreaValue") || "";
+const imageDataURL = localStorage.getItem("imageDataURL") || "";
 
 inputName.value = nameValue;
 log.textContent = nameValue;
@@ -136,22 +137,18 @@ textArea.addEventListener("input", function (e) {
 });
 
 window.addEventListener("load", function () {
-  const mailValue = localStorage.getItem("mailValue");
   if (mailValue) {
     logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${mailValue}</p>`;
   }
 
-  const phoneValue = localStorage.getItem("phoneValue");
   if (phoneValue) {
     logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
   }
 
-  const imageDataURL = localStorage.getItem("imageDataURL");
   if (imageDataURL) {
     logImage.innerHTML = '<img src="' + imageDataURL + '" />';
   }
 
-  const textAreaValue = localStorage.getItem("textAreaValue");
   if (textAreaValue) {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${textAreaValue}</p>`;
   }

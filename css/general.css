@@ -352,3 +352,9 @@ a {
   margin-left: 80px;
   margin-top: 50px;
 }
+
+.cv-logo-img {
+  position: absolute;
+  margin-left: 80px;
+  bottom: 44px;
+}

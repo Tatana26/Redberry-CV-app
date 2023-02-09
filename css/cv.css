@@ -19,51 +19,156 @@ body {
   font-family: "HelveticaNeue";
 }
 
-.final-cv {
+.cv-logo-img {
+  position: absolute;
+  margin-left: 80px;
+  bottom: 44px;
+}
+
+.underline {
+  height: 1px;
+  width: 662px;
+  background-color: #a9a9a9;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+.cv {
+  margin: 54px 549px 129px 549px;
   border: 1px solid #000000;
   width: 822px;
-  margin-left: 30%;
-  overflow: scroll;
+  height: 1080px;
 }
 
-.final-cv .cv {
-  display: flex;
-}
-
-.final-cv .cv-username {
-  display: flex;
-  margin-left: 80px;
+.cv .personal-info .name {
   margin-top: 68px;
+  margin-left: 80px;
+  display: flex;
 }
 
-.final-cv .cv-username .log,
-.final-cv .cv-username .surname {
-  left: 80px;
+.cv .personal-info .name .log {
+  margin-right: 20px;
   font-size: 34px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.cv .personal-info .name .surname {
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.cv .personal-info .email-phone {
+  margin-top: 17px;
+  margin-left: 80px;
+}
+
+.cv .personal-info .email-phone .email,
+.cv .personal-info .email-phone .phone-number {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.cv .personal-info .email-phone .email img,
+.cv .personal-info .email-phone .phone-number img {
+  margin-right: 12px;
+}
+
+.cv .personal-info .about-div h1 {
+  font-size: 23px;
   color: var(--secondary-color);
   font-weight: bold;
-  width: 123px;
-  height: 42px;
+  margin-bottom: 15px;
 }
-.final-cv .cv-username-img .image-div img {
-  border-radius: 50%;
+
+.cv .personal-info .about-div {
+  width: 432px;
+  margin-left: 80px;
+  margin-top: 34px;
+  font-size: 20px;
+  line-height: 1.2em;
+}
+
+.cv .personal-info .image-div img {
   width: 246px;
   height: 246px;
-  margin-top: 68px;
+  border-radius: 50%;
+  margin-top: 48px;
   margin-right: 75px;
 }
 
-.final-cv .cv .email,
-.final-cv .cv .phone-number {
+.cv .image-flex {
+  display: flex;
+}
+
+.cv .job-info .position-employer {
   display: flex;
   margin-left: 80px;
+  font-size: 19px;
+}
+
+.cv .job-info .position-employer .log-position {
+  margin-right: 10px;
+}
+
+.cv .job-info .position-heading {
+  margin-left: 80px;
+  margin-top: 24px;
+  margin-bottom: 15px;
+  font-size: 21px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.cv .job-info .job-info-date {
+  margin-left: 80px;
+  color: var(--undernline-text);
+  display: flex;
+  margin-top: 7px;
+}
+
+.cv .job-info .job-info-date .log-date-first {
+  margin-right: 10px;
+}
+
+.cv .job-info .log-second-about {
+  margin-left: 80px;
+  width: 662px;
+  margin-top: 16px;
   font-size: 20px;
+  line-height: 1.2em;
 }
 
-.final-cv .cv .email img,
-.final-cv .cv .phone-number img {
-  object-fit: contain;
+.cv .education-info .education-place-header {
+  color: var(--secondary-color);
+  margin-left: 80px;
+  margin-top: 26px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.final-cv .cv .phone img {
+.cv .education-info .quality-place {
+  display: flex;
+  margin-left: 80px;
+  margin-top: 15px;
+}
+
+.cv .education-info .quality-place .log-quality {
+  margin-right: 10px;
+}
+
+.cv .education-info .log-quality-date {
+  margin-left: 80px;
+  color: var(--undernline-text);
+  margin-top: 7px;
+}
+
+.cv .education-info .log-third-area {
+  margin-left: 80px;
+  width: 662px;
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 1.2em;
 }

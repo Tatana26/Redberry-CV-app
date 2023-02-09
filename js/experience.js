@@ -37,6 +37,7 @@ const employerValue = localStorage.getItem("employerValue") || "";
 const dateFirstValue = localStorage.getItem("dateFirstValue") || "";
 const dateSecondValue = localStorage.getItem("dateSecondValue") || "";
 const secondTextareaValue = localStorage.getItem("secondTextareaValue") || "";
+const imageDataURL = localStorage.getItem("imageDataURL") || "";
 
 log.textContent = nameValue;
 logSecond.textContent = surnameValue;
@@ -62,27 +63,22 @@ logSecondTextarea.textContent = secondTextareaValue;
 // });
 
 window.addEventListener("load", function () {
-  const mailValue = localStorage.getItem("mailValue");
   if (mailValue) {
     logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${mailValue}</p>`;
   }
 
-  const phoneValue = localStorage.getItem("phoneValue");
   if (phoneValue) {
     logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
   }
 
-  const imageDataURL = localStorage.getItem("imageDataURL");
   if (imageDataURL) {
     logImage.innerHTML = '<img src="' + imageDataURL + '" />';
   }
 
-  const textAreaValue = localStorage.getItem("textAreaValue");
   if (textAreaValue) {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${textAreaValue}</p>`;
   }
 
-  const positionValue = localStorage.getItem("positionValue");
   if (positionValue) {
     logPositionHeading.innerHTML = `<h1>გამოცდილება</h1>`;
   }
