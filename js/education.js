@@ -24,6 +24,7 @@ const logEducationPlaceHeader = document.querySelector(
   ".education-place-header"
 );
 const endBtn = document.querySelector(".end-btn");
+const clearStorage = document.querySelector(".chevron-left");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -65,12 +66,12 @@ logThirdArea.textContent = thirdAreaVlue;
 
 window.addEventListener("load", function () {
   if (mailValue) {
-    logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${mailValue}</p>`;
+    logMail.innerHTML = `<img src="./image/mail-icon.png" alt="" /> <p>${mailValue}</p>`;
   }
 
   const phoneValue = localStorage.getItem("phoneValue");
   if (phoneValue) {
-    logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
+    logPhone.innerHTML = `<img src="./image/phone-icon.png" alt="" /> <p>${phoneValue}</p>`;
   }
 
   const imageDataURL = localStorage.getItem("imageDataURL");
@@ -145,6 +146,10 @@ qualityInput.addEventListener("change", function (e) {
   localStorage.setItem("optionValue", value);
 });
 
+clearStorage.addEventListener("click", function () {
+  localStorage.clear();
+});
+
 endBtn.addEventListener("click", async function () {
   try {
     const data = new FormData();
@@ -172,7 +177,7 @@ endBtn.addEventListener("click", async function () {
     data.append("image", imageDataURL);
     data.append("about_me", textAreaValue);
     await fetch("https://resume.redberryinternship.ge/api/cvs", {
-      method: "post",
+      method: "POST",
       body: data,
     });
     window.location.href = "cv.html";

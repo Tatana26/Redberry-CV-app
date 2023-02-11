@@ -19,7 +19,7 @@ const nameLabel = document.querySelector(".name-label");
 const surnameLabel = document.querySelector(".surname-label");
 const mailLabel = document.querySelector(".mail-label");
 const phoneLabel = document.querySelector(".phone-label");
-const clearStorage = document.querySelector(".vector");
+const clearStorage = document.querySelector(".chevron-left");
 const underlineDiv = document.querySelector(".underline");
 
 const nameValue = localStorage.getItem("nameValue") || "";
@@ -44,7 +44,7 @@ inputName.addEventListener("input", function (e) {
   const value = e.target.value;
   log.textContent = value;
   localStorage.setItem("nameValue", e.target.value);
-  if (value.length < 2) {
+  if (value.length < 2 && !value.match(/^[ა-ჰ]+$/)) {
     inputName.classList.add("error");
     inputName.classList.remove("success");
     nameIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
@@ -61,7 +61,7 @@ inputSurname.addEventListener("input", function (e) {
   const value = e.target.value;
   logSecond.textContent = value;
   localStorage.setItem("surnameValue", value);
-  if (value.length < 2) {
+  if (value.length < 2 && !value.match(/^[ა-ჰ]+$/)) {
     inputSurname.classList.add("error");
     inputSurname.classList.remove("success");
     surnameIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
@@ -76,7 +76,7 @@ inputSurname.addEventListener("input", function (e) {
 
 inputMail.addEventListener("input", function (e) {
   const value = e.target.value;
-  logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${value}</p>`;
+  logMail.innerHTML = `<img src="./image/mail-icon.png" alt="" /> <p>${value}</p>`;
   if (value === "") {
     logMail.innerHTML = "";
   }
@@ -96,7 +96,7 @@ inputMail.addEventListener("input", function (e) {
 
 inputPhone.addEventListener("input", function (e) {
   const value = e.target.value;
-  logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${value}</p>`;
+  logPhone.innerHTML = `<img src="./image/phone-icon.png" alt="" /> <p>${value}</p>`;
   localStorage.setItem("phoneValue", value);
   if (value === "") {
     logPhone.innerHTML = "";
@@ -131,18 +131,22 @@ textArea.addEventListener("input", function (e) {
   localStorage.setItem("textAreaValue", value);
   if (value === "") {
     logTextArea.textContent = "";
+    textArea.classList.add("error");
+    textArea.classList.remove("success");
   } else {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${e.target.value}</p>`;
+    textArea.classList.add("success");
+    textArea.classList.remove("error");
   }
 });
 
 window.addEventListener("load", function () {
   if (mailValue) {
-    logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${mailValue}</p>`;
+    logMail.innerHTML = `<img src="./image/mail-icon.png" alt="" /> <p>${mailValue}</p>`;
   }
 
   if (phoneValue) {
-    logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
+    logPhone.innerHTML = `<img src="./image/phone-icon.png" alt="" /> <p>${phoneValue}</p>`;
   }
 
   if (imageDataURL) {

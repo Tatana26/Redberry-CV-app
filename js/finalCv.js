@@ -17,6 +17,9 @@ const logThirdArea = document.querySelector(".log-third-area");
 const logEducationPlaceHeader = document.querySelector(
   ".education-place-header"
 );
+const clearStorage = document.querySelector(".chevron-left");
+const popUp = document.querySelector(".popup");
+const closeButton = document.querySelector(".close-button");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -51,11 +54,11 @@ logThirdArea.textContent = thirdAreaVlue;
 
 window.addEventListener("load", function () {
   if (mailValue) {
-    logMail.innerHTML = `<img src="./image/Vector (1).png" alt="" /> <p>${mailValue}</p>`;
+    logMail.innerHTML = `<img src="./image/mail-icon.png" alt="" /> <p>${mailValue}</p>`;
   }
 
   if (phoneValue) {
-    logPhone.innerHTML = `<img src="./image/Vector (2).png" alt="" /> <p>${phoneValue}</p>`;
+    logPhone.innerHTML = `<img src="./image/phone-icon.png" alt="" /> <p>${phoneValue}</p>`;
   }
 
   if (imageDataURL) {
@@ -73,4 +76,16 @@ window.addEventListener("load", function () {
   if (educationPlaceValue) {
     logEducationPlaceHeader.innerHTML = `<h1>განათლება</h1>`;
   }
+});
+
+window.addEventListener("load", function () {
+  popUp.style.visibility = "visible";
+});
+
+closeButton.addEventListener("click", function () {
+  popUp.style.display = "none";
+});
+
+clearStorage.addEventListener("click", function () {
+  localStorage.clear();
 });

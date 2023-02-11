@@ -10,11 +10,6 @@
   --max-width: 800px;
 }
 
-.cv-logo-img {
-  position: absolute;
-  margin-left: 80px;
-  bottom: 44px;
-}
 
 .hide {
   display: none;
