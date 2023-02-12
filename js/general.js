@@ -21,6 +21,7 @@ const mailLabel = document.querySelector(".mail-label");
 const phoneLabel = document.querySelector(".phone-label");
 const clearStorage = document.querySelector(".chevron-left");
 const underlineDiv = document.querySelector(".underline");
+const nextPageBtn = document.querySelector(".next-page-btn");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -40,20 +41,34 @@ logPhone.textContent = phoneValue;
 textArea.value = textAreaValue;
 logTextArea.textContent = textAreaValue;
 
+const errors = [
+  "inputName",
+  "inputSurname",
+  "inputMail",
+  "inputPhone",
+  "textArea",
+];
+
 inputName.addEventListener("input", function (e) {
   const value = e.target.value;
   log.textContent = value;
   localStorage.setItem("nameValue", e.target.value);
-  if (value.length < 2 && !value.match(/^[ა-ჰ]+$/)) {
+  if (value.length < 2 || !value.match(/^[ა-ჰ]+$/)) {
     inputName.classList.add("error");
     inputName.classList.remove("success");
     nameIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     nameLabel.classList.add("error-label");
+    const index = errors.indexOf("inputName");
+    if (index > -1) return;
+    errors.push("inputName");
   } else {
     inputName.classList.remove("error");
     inputName.classList.add("success");
     nameIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     nameLabel.classList.remove("error-label");
+    const index = errors.indexOf("inputName");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -61,16 +76,22 @@ inputSurname.addEventListener("input", function (e) {
   const value = e.target.value;
   logSecond.textContent = value;
   localStorage.setItem("surnameValue", value);
-  if (value.length < 2 && !value.match(/^[ა-ჰ]+$/)) {
+  if (value.length < 2 || !value.match(/^[ა-ჰ]+$/)) {
     inputSurname.classList.add("error");
     inputSurname.classList.remove("success");
     surnameIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     surnameLabel.classList.add("error-label");
+    const index = errors.indexOf("inputSurname");
+    if (index > -1) return;
+    errors.push("inputSurname");
   } else {
     inputSurname.classList.remove("error");
     inputSurname.classList.add("success");
     surnameIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     surnameLabel.classList.remove("error-label");
+    const index = errors.indexOf("inputSurname");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -86,11 +107,17 @@ inputMail.addEventListener("input", function (e) {
     inputMail.classList.remove("success");
     mailIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     mailLabel.classList.add("error-label");
+    const index = errors.indexOf("inputMail");
+    if (index > -1) return;
+    errors.push("inputMail");
   } else {
     inputMail.classList.remove("error");
     inputMail.classList.add("success");
     mailIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     mailLabel.classList.remove("error-label");
+    const index = errors.indexOf("inputMail");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -100,16 +127,29 @@ inputPhone.addEventListener("input", function (e) {
   localStorage.setItem("phoneValue", value);
   if (value === "") {
     logPhone.innerHTML = "";
+    inputPhone.classList.add("error");
+    inputPhone.classList.remove("success");
+    phoneIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
+    phoneLabel.classList.add("error-label");
+    const index = errors.indexOf("inputPhone");
+    if (index > -1) return;
+    errors.push("inputPhone");
   } else if (!value.startsWith("+995")) {
     inputPhone.classList.add("error");
     inputPhone.classList.remove("success");
     phoneIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     phoneLabel.classList.add("error-label");
+    const index = errors.indexOf("inputPhone");
+    if (index > -1) return;
+    errors.push("inputPhone");
   } else if (value.startsWith("+995")) {
     inputPhone.classList.remove("error");
     inputPhone.classList.add("success");
     phoneIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     phoneLabel.classList.remove("error-label");
+    const index = errors.indexOf("inputPhone");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -133,20 +173,48 @@ textArea.addEventListener("input", function (e) {
     logTextArea.textContent = "";
     textArea.classList.add("error");
     textArea.classList.remove("success");
+    const index = errors.indexOf("textArea");
+    if (index > -1) return;
+    errors.push("textArea");
   } else {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${e.target.value}</p>`;
     textArea.classList.add("success");
     textArea.classList.remove("error");
+    const index = errors.indexOf("textArea");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
 window.addEventListener("load", function () {
+  if (nameValue) {
+    if (nameValue.length > 1 || nameValue.match(/^[ა-ჰ]+$/)) {
+      const index = errors.indexOf("inputName");
+      errors.splice(index, 1);
+    }
+  }
+
+  if (surnameValue) {
+    if (surnameValue.length > 1 || surnameValue.match(/^[ა-ჰ]+$/)) {
+      const index = errors.indexOf("inputSurname");
+      errors.splice(index, 1);
+    }
+  }
+
   if (mailValue) {
     logMail.innerHTML = `<img src="./image/mail-icon.png" alt="" /> <p>${mailValue}</p>`;
+    if (mailValue.endsWith("@redberry.ge")) {
+      const index = errors.indexOf("inputMail");
+      errors.splice(index, 1);
+    }
   }
 
   if (phoneValue) {
     logPhone.innerHTML = `<img src="./image/phone-icon.png" alt="" /> <p>${phoneValue}</p>`;
+    if (phoneValue.startsWith("+995")) {
+      const index = errors.indexOf("inputPhone");
+      errors.splice(index, 1);
+    }
   }
 
   if (imageDataURL) {
@@ -155,9 +223,16 @@ window.addEventListener("load", function () {
 
   if (textAreaValue) {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${textAreaValue}</p>`;
+    const index = errors.indexOf("textArea");
+    errors.splice(index, 1);
   }
 });
 
 clearStorage.addEventListener("click", function () {
   localStorage.clear();
+});
+
+nextPageBtn.addEventListener("click", function () {
+  if (errors.length > 0 || !localStorage.getItem("imageDataURL")) return;
+  window.location.href = "experience.html";
 });

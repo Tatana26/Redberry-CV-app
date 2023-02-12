@@ -32,9 +32,9 @@ main {
 }
 
 .cv-logo-img {
-  margin-top: 2rem;
-  margin-left: 80px;
-  bottom: 44px;
+  margin-top: 4rem;
+  margin-left: 77px;
+  margin-bottom: 44px;
 }
 
 .underline {
@@ -49,7 +49,7 @@ main {
   margin: 54px 52px 129px 549px;
   border: 1px solid #000000;
   width: 822px;
-  height: fit-content;
+  min-height: 1000px;
   padding-bottom: 1rem;
 }
 
@@ -190,10 +190,9 @@ main {
   width: 427px;
   height: 167px;
   display: flex;
-  /* align-items: center; */
   background-color: var(--primary-color);
   border-radius: 5px;
-  box-shadow: 0px 3px 10px 10px var(--undernline-text);
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
   font-size: 25px;
   font-weight: bold;
   visibility: hidden;
@@ -214,6 +213,6 @@ main {
   font-weight: bold;
   width: 20px;
   height: 20px;
-  margin-left: 100px;
+  margin-right: 10px;
   margin-top: 5px;
 }

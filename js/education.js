@@ -25,6 +25,7 @@ const logEducationPlaceHeader = document.querySelector(
 );
 const endBtn = document.querySelector(".end-btn");
 const clearStorage = document.querySelector(".chevron-left");
+const nextPageBtn = document.querySelector(".next-page-btn");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -64,34 +65,55 @@ logQualityDate.textContent = qualityDateValue;
 textAreaThirdInput.value = thirdAreaVlue;
 logThirdArea.textContent = thirdAreaVlue;
 
+const errors = [
+  "educationPlaceInput",
+  "qualityInput",
+  "qualityDateInput",
+  "textAreaThirdInput",
+];
+
 window.addEventListener("load", function () {
   if (mailValue) {
     logMail.innerHTML = `<img src="./image/mail-icon.png" alt="" /> <p>${mailValue}</p>`;
   }
 
-  const phoneValue = localStorage.getItem("phoneValue");
   if (phoneValue) {
     logPhone.innerHTML = `<img src="./image/phone-icon.png" alt="" /> <p>${phoneValue}</p>`;
   }
 
-  const imageDataURL = localStorage.getItem("imageDataURL");
   if (imageDataURL) {
     logImage.innerHTML = '<img src="' + imageDataURL + '" />';
   }
 
-  const textAreaValue = localStorage.getItem("textAreaValue");
   if (textAreaValue) {
     logTextArea.innerHTML = `<h1>ჩემს შესახებ</h1> <p>${textAreaValue}</p>`;
   }
 
-  const positionValue = localStorage.getItem("positionValue");
   if (positionValue) {
     logPositionHeading.innerHTML = `<h1>გამოცდილება</h1>`;
   }
 
-  const educationPlaceValue = localStorage.getItem("educationPlaceValue");
   if (educationPlaceValue) {
     logEducationPlaceHeader.innerHTML = `<h1>განათლება</h1>`;
+    if (educationPlaceValue.length > 1) {
+      const index = errors.indexOf("educationPlaceInput");
+      errors.splice(index, 1);
+    }
+  }
+
+  if (qualityDateValue) {
+    const index = errors.indexOf("qualityDateInput");
+    errors.splice(index, 1);
+  }
+
+  if (thirdAreaVlue) {
+    const index = errors.indexOf("textAreaThirdInput");
+    errors.splice(index, 1);
+  }
+
+  if (qualityValue) {
+    const index = errors.indexOf("qualityInput");
+    errors.splice(index, 1);
   }
 });
 
@@ -100,6 +122,13 @@ educationPlaceInput.addEventListener("input", function (e) {
   logEducationPlace.innerHTML = `${value}${value && ","}`;
   if (value === "") {
     logEducationPlaceHeader.innerHTML = "";
+    educationPlaceInput.classList.add("error");
+    educationPlaceInput.classList.remove("success");
+    educationPlaceIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
+    educationPlaceLabel.classList.add("error-label");
+    const index = errors.indexOf("educationPlaceInput");
+    if (index > -1) return;
+    errors.push("educationPlaceInput");
   } else {
     logEducationPlaceHeader.innerHTML = `<h1>განათლება</h1>`;
   }
@@ -109,30 +138,56 @@ educationPlaceInput.addEventListener("input", function (e) {
     educationPlaceInput.classList.remove("success");
     educationPlaceIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     educationPlaceLabel.classList.add("error-label");
+    const index = errors.indexOf("educationPlaceInput");
+    if (index > -1) return;
+    errors.push("educationPlaceInput");
   } else {
     educationPlaceInput.classList.remove("error");
     educationPlaceInput.classList.add("success");
     educationPlaceIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     educationPlaceLabel.classList.remove("error-label");
+    const index = errors.indexOf("educationPlaceInput");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
-});
-
-qualityInput.addEventListener("input", function (e) {
-  const value = e.target.value;
-  logQuality.textContent = value;
-  localStorage.setItem("qualityValue", value);
 });
 
 qualityDateInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logQualityDate.textContent = value;
   localStorage.setItem("qualityDateValue", value);
+  if (value === "") {
+    qualityDateInput.classList.add("error");
+    qualityDateInput.classList.remove("success");
+    const index = errors.indexOf("qualityDateInput");
+    if (index > -1) return;
+    errors.push("qualityDateInput");
+  } else {
+    qualityDateInput.classList.remove("error");
+    qualityDateInput.classList.add("success");
+    const index = errors.indexOf("qualityDateInput");
+    if (index < 0) return;
+    errors.splice(index, 1);
+  }
 });
 
 textAreaThirdInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logThirdArea.textContent = value;
   localStorage.setItem("thirdAreaVlue", value);
+  if (value === "") {
+    textAreaThirdInput.classList.add("error");
+    textAreaThirdInput.classList.remove("success");
+    const index = errors.indexOf("textAreaThirdInput");
+    if (index > -1) return;
+    errors.push("textAreaThirdInput");
+  } else {
+    textAreaThirdInput.classList.remove("error");
+    textAreaThirdInput.classList.add("success");
+    const index = errors.indexOf("textAreaThirdInput");
+    if (index < 0) return;
+    errors.splice(index, 1);
+  }
 });
 
 qualityInput.addEventListener("change", function (e) {
@@ -144,6 +199,20 @@ qualityInput.addEventListener("change", function (e) {
   });
   logQuality.textContent = option.title;
   localStorage.setItem("optionValue", value);
+  localStorage.setItem("optionTitle", option.title);
+  if (value === "") {
+    qualityInput.classList.add("error");
+    qualityInput.classList.remove("success");
+    const index = errors.indexOf("qualityInput");
+    if (index > -1) return;
+    errors.push("qualityInput");
+  } else {
+    qualityInput.classList.remove("error");
+    qualityInput.classList.add("success");
+    const index = errors.indexOf("qualityInput");
+    if (index < 0) return;
+    errors.splice(index, 1);
+  }
 });
 
 clearStorage.addEventListener("click", function () {
@@ -180,10 +249,9 @@ endBtn.addEventListener("click", async function () {
       method: "POST",
       body: data,
     });
+    if (errors.length > 0 || !localStorage.getItem("imageDataURL")) return;
     window.location.href = "cv.html";
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 });
 
 async function getOptions() {

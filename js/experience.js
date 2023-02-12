@@ -25,7 +25,9 @@ const logPositionHeading = document.querySelector(".position-heading");
 const leftSide = document.querySelector(".general-left");
 const addMoreInfo = document.querySelector("#more-info");
 const additionalInfo = document.querySelector(".additional-info");
+const nextPageBtn = document.querySelector(".next-page-btn");
 const forms = document.querySelector(".forms");
+const CV = document.querySelector("#general-right");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -55,23 +57,41 @@ logDateSecond.textContent = dateSecondValue;
 inputSecondTextarea.value = secondTextareaValue;
 logSecondTextarea.textContent = secondTextareaValue;
 
-addMoreInfo.addEventListener("click", function () {
-  formCount++;
+const errors = [
+  "positionInput",
+  "employerInput",
+  "inputDateFirst",
+  "inputDateSecond",
+  "inputSecondTextarea",
+];
 
-  forms.insertAdjacentHTML(
-    "beforeend",
-    `<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input position-input-${formCount}"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>`
-  );
-  const newPositionInput = document.querySelector(
-    `.position-input-${formCount}`
-  );
+// addMoreInfo.addEventListener("click", function () {
+//   formCount++;
 
-  console.log("object =>", `.position-input-${formCount}`);
+//   forms.insertAdjacentHTML(
+//     "beforeend",
+//     `<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input-${formCount} position-input"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>`
+//   );
 
-  newPositionInput.addEventListener("input", function (e) {
-    validate(e, formCount);
-  });
-});
+//   CV.insertAdjacentHTML(
+//     "beforeend",
+//     `<div id="general-right"> <div class="cv"> <div class="cv-info"> <div class="cv-username"> <p class="log"></p><p class="surname"></p></div><div class="email"></div><div class="phone-number"></div><div class="about-div"></div></div><div class="cv-username-img"> <div class="image-div"></div></div></div><div class="cv-part-second"> <div class="underline"></div><div class="position-employer"> <div class="position-heading"></div><div class="positioning-date"> <div class="log-position-${formCount}"></div><div class="log-employer"></div></div></div><div class="log-date"> <div class="log-date-first"></div><div class="log-date-second"></div></div><div class="log-second-about"></div></div><div class="cv-part-third"> <div class="underline"></div><div class="education-place-header"></div><div class="quality-place"> <div class="log-education-place"></div><div class="log-quality"></div></div><div class="log-quality-date"></div><div class="log-third-area"></div></div><img src="./image/cv-logo.png" alt="cv-logo" class="cv-logo-img"/> </div>`
+//   );
+
+//   const newPositionInput = document.querySelector(
+//     `.position-input-${formCount}`
+//   );
+
+//   const newLogPosition = document.querySelector(`log-position-${formCount}`);
+
+//   newPositionInput.addEventListener("input", function (e) {
+//     validate(e, formCount);
+//   });
+
+//   newLogPosition.addEventListener("input", function (e) {
+//     validate(e, formCount);
+//   });
+// });
 
 window.addEventListener("load", function () {
   if (mailValue) {
@@ -92,17 +112,50 @@ window.addEventListener("load", function () {
 
   if (positionValue) {
     logPositionHeading.innerHTML = `<h1>გამოცდილება</h1>`;
+    if (positionValue.length > 1) {
+      const index = errors.indexOf("positionInput");
+      errors.splice(index, 1);
+    }
+  }
+
+  if (employerValue) {
+    if (employerValue.length > 1) {
+      const index = errors.indexOf("employerInput");
+      errors.splice(index, 1);
+    }
+  }
+
+  if (dateFirstValue) {
+    const index = errors.indexOf("inputDateFirst");
+    errors.splice(index, 1);
+  }
+
+  if (dateSecondValue) {
+    const index = errors.indexOf("inputDateSecond");
+    errors.splice(index, 1);
+  }
+
+  if (secondTextareaValue) {
+    const index = errors.indexOf("inputSecondTextarea");
+    errors.splice(index, 1);
   }
 });
 
-let formCount = 1;
-function validate(e, count = formCount) {
-  const positionInput = document.querySelector(`.position-input-${count}`);
-
+// let formCount = 1;
+// function validate(e, count = formCount) {
+//   const positionInput = document.querySelector(`.position-input-${count}`);
+positionInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logPosition.innerHTML = `${value}${value && ","}`;
   if (value === "") {
     logPositionHeading.innerHTML = "";
+    positionInput.classList.add("error");
+    positionInput.classList.remove("success");
+    positionIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
+    positionLabel.classList.add("error-label");
+    const index = errors.indexOf("positionInput");
+    if (index > -1) return;
+    errors.push("positionInput");
   } else {
     logPositionHeading.innerHTML = `<h1>გამოცდილება</h1>`;
   }
@@ -112,15 +165,25 @@ function validate(e, count = formCount) {
     positionInput.classList.remove("success");
     positionIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     positionLabel.classList.add("error-label");
+    const index = errors.indexOf("positionInput");
+    if (index > -1) return;
+    errors.push("positionInput");
   } else {
     positionInput.classList.remove("error");
     positionInput.classList.add("success");
     positionIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     positionLabel.classList.remove("error-label");
+    const index = errors.indexOf("positionInput");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
-}
+});
 
-positionInput.addEventListener("input", (e) => validate(e, 1));
+// function onPositionInputChange(e) {
+//   validate(e, 1);
+// }
+
+// positionInput.addEventListener("input", onPositionInputChange);
 
 employerInput.addEventListener("input", function (e) {
   const value = e.target.value;
@@ -131,11 +194,17 @@ employerInput.addEventListener("input", function (e) {
     employerInput.classList.remove("success");
     employerIcon.innerHTML = `<img src="./image/error-icon.png" alt="" />`;
     employerLabel.classList.add("error-label");
+    const index = errors.indexOf("employerInput");
+    if (index > -1) return;
+    errors.push("employerInput");
   } else {
     employerInput.classList.remove("error");
     employerInput.classList.add("success");
     employerIcon.innerHTML = `<img src="./image/success-icon.png" alt="" />`;
     employerLabel.classList.remove("error-label");
+    const index = errors.indexOf("employerInput");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -146,9 +215,15 @@ inputDateFirst.addEventListener("input", function (e) {
   if (value === "") {
     inputDateFirst.classList.add("error");
     inputDateFirst.classList.remove("success");
+    const index = errors.indexOf("inputDateFirst");
+    if (index > -1) return;
+    errors.push("inputDateFirst");
   } else {
     inputDateFirst.classList.add("success");
     inputDateFirst.classList.remove("error");
+    const index = errors.indexOf("inputDateFirst");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -159,9 +234,15 @@ inputDateSecond.addEventListener("input", function (e) {
   if (value === "") {
     inputDateSecond.classList.add("error");
     inputDateSecond.classList.remove("success");
+    const index = errors.indexOf("inputDateSecond");
+    if (index > -1) return;
+    errors.push("inputDateSecond");
   } else {
     inputDateSecond.classList.add("success");
     inputDateSecond.classList.remove("error");
+    const index = errors.indexOf("inputDateSecond");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
@@ -172,12 +253,23 @@ inputSecondTextarea.addEventListener("input", function (e) {
   if (value === "") {
     inputSecondTextarea.classList.add("error");
     inputSecondTextarea.classList.remove("success");
+    const index = errors.indexOf("inputSecondTextarea");
+    if (index > -1) return;
+    errors.push("inputSecondTextarea");
   } else {
     inputSecondTextarea.classList.add("success");
     inputSecondTextarea.classList.remove("error");
+    const index = errors.indexOf("inputSecondTextarea");
+    if (index < 0) return;
+    errors.splice(index, 1);
   }
 });
 
 clearStorage.addEventListener("click", function () {
   localStorage.clear();
+});
+
+nextPageBtn.addEventListener("click", function () {
+  if (errors.length > 0 || !localStorage.getItem("imageDataURL")) return;
+  window.location.href = "education.html";
 });
