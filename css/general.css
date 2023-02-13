@@ -53,6 +53,12 @@ a {
   border-radius: 4px;
   font-size: 18px;
   border: none;
+  transform: background;
+}
+
+.btn-changePG:hover {
+  background-color: #7949ff;
+  transition-duration: 0.5s;
 }
 
 .general-left {
@@ -133,6 +139,7 @@ a {
   margin: 8px 0;
   border: 1px solid #bcbcbc;
   outline: none;
+  padding: 5px;
 }
 
 .form-box .input-div {
@@ -349,7 +356,7 @@ a {
   font-size: 20px;
   margin-top: 15px;
   line-height: 25px;
-  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .cv .cv-info .about-div h1 {

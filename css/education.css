@@ -60,6 +60,10 @@
   flex-direction: column;
 }
 
+.general-left .quality-date .quality select {
+  padding: 0 5px;
+}
+
 .general-left .quality-date .quality select,
 .general-left .quality-date .end-date input {
   width: 360px;

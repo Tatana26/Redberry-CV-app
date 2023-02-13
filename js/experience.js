@@ -28,6 +28,7 @@ const additionalInfo = document.querySelector(".additional-info");
 const nextPageBtn = document.querySelector(".next-page-btn");
 const forms = document.querySelector(".forms");
 const CV = document.querySelector("#general-right");
+const secondPartCv = document.querySelector(".cv-part-second");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -40,6 +41,7 @@ const dateFirstValue = localStorage.getItem("dateFirstValue") || "";
 const dateSecondValue = localStorage.getItem("dateSecondValue") || "";
 const secondTextareaValue = localStorage.getItem("secondTextareaValue") || "";
 const imageDataURL = localStorage.getItem("imageDataURL") || "";
+const newPositionInputValue = localStorage.getItem("newPositionInput") || "";
 
 log.textContent = nameValue;
 logSecond.textContent = surnameValue;
@@ -65,33 +67,27 @@ const errors = [
   "inputSecondTextarea",
 ];
 
-// addMoreInfo.addEventListener("click", function () {
-//   formCount++;
+addMoreInfo.addEventListener("click", function () {
+  formCount++;
 
-//   forms.insertAdjacentHTML(
-//     "beforeend",
-//     `<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input-${formCount} position-input"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>`
-//   );
+  forms.insertAdjacentHTML(
+    "beforeend",
+    `<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input-${formCount} position-input"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>`
+  );
 
-//   CV.insertAdjacentHTML(
-//     "beforeend",
-//     `<div id="general-right"> <div class="cv"> <div class="cv-info"> <div class="cv-username"> <p class="log"></p><p class="surname"></p></div><div class="email"></div><div class="phone-number"></div><div class="about-div"></div></div><div class="cv-username-img"> <div class="image-div"></div></div></div><div class="cv-part-second"> <div class="underline"></div><div class="position-employer"> <div class="position-heading"></div><div class="positioning-date"> <div class="log-position-${formCount}"></div><div class="log-employer"></div></div></div><div class="log-date"> <div class="log-date-first"></div><div class="log-date-second"></div></div><div class="log-second-about"></div></div><div class="cv-part-third"> <div class="underline"></div><div class="education-place-header"></div><div class="quality-place"> <div class="log-education-place"></div><div class="log-quality"></div></div><div class="log-quality-date"></div><div class="log-third-area"></div></div><img src="./image/cv-logo.png" alt="cv-logo" class="cv-logo-img"/> </div>`
-//   );
+  secondPartCv.insertAdjacentHTML(
+    "beforeend",
+    `<div class="cv-part-second"> <div class="underline"></div> <div class="position-employer"> <div class="position-heading"></div> <div class="positioning-date"> <div class="log-position "></div> <div class="log-employer"></div> </div> </div> <div class="log-date"> <div class="log-date-first"></div> <div class="log-date-second"></div> </div> <div class="log-second-about"></div>`
+  );
 
-//   const newPositionInput = document.querySelector(
-//     `.position-input-${formCount}`
-//   );
+  const newPositionInput = document.querySelector(
+    `.position-input-${formCount}`
+  );
 
-//   const newLogPosition = document.querySelector(`log-position-${formCount}`);
-
-//   newPositionInput.addEventListener("input", function (e) {
-//     validate(e, formCount);
-//   });
-
-//   newLogPosition.addEventListener("input", function (e) {
-//     validate(e, formCount);
-//   });
-// });
+  newPositionInput.addEventListener("input", function (e) {
+    validate(e, formCount);
+  });
+});
 
 window.addEventListener("load", function () {
   if (mailValue) {
@@ -141,10 +137,10 @@ window.addEventListener("load", function () {
   }
 });
 
-// let formCount = 1;
-// function validate(e, count = formCount) {
-//   const positionInput = document.querySelector(`.position-input-${count}`);
-positionInput.addEventListener("input", function (e) {
+let formCount = 1;
+function validate(e, count = formCount) {
+  const positionInput = document.querySelector(`.position-input-${count}`);
+  // positionInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logPosition.innerHTML = `${value}${value && ","}`;
   if (value === "") {
@@ -177,13 +173,13 @@ positionInput.addEventListener("input", function (e) {
     if (index < 0) return;
     errors.splice(index, 1);
   }
-});
+}
 
-// function onPositionInputChange(e) {
-//   validate(e, 1);
-// }
+function onPositionInputChange(e) {
+  validate(e, 1);
+}
 
-// positionInput.addEventListener("input", onPositionInputChange);
+positionInput.addEventListener("input", onPositionInputChange);
 
 employerInput.addEventListener("input", function (e) {
   const value = e.target.value;
