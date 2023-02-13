@@ -35,6 +35,8 @@ main {
   margin-top: 4rem;
   margin-left: 77px;
   margin-bottom: 44px;
+  width: 42px;
+  height: 42px;
 }
 
 .underline {
@@ -51,6 +53,9 @@ main {
   width: 822px;
   min-height: 1000px;
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cv .personal-info .name {
@@ -202,6 +207,7 @@ main {
 .popup .popup-body {
   padding-top: 35px;
   padding-left: 30px;
+  line-height: 1.8em;
 }
 
 .popup .close-button {

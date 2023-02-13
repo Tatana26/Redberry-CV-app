@@ -26,6 +26,9 @@ const logEducationPlaceHeader = document.querySelector(
 const endBtn = document.querySelector(".end-btn");
 const clearStorage = document.querySelector(".chevron-left");
 const nextPageBtn = document.querySelector(".next-page-btn");
+const previousPage = document.querySelector(".btn-previous-page");
+const addMoreInfo = document.querySelector("#more-info");
+const forms = document.querySelector(".forms");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -64,6 +67,13 @@ qualityDateInput.value = qualityDateValue;
 logQualityDate.textContent = qualityDateValue;
 textAreaThirdInput.value = thirdAreaVlue;
 logThirdArea.textContent = thirdAreaVlue;
+
+addMoreInfo.addEventListener("click", function () {
+  forms.insertAdjacentHTML(
+    "beforeend",
+    `<form action=""> <div class="education-place"> <label class="education-label" for="education-place" >სასწავლებელი</label > <div class="education-place-div"> <input type="text" class="education"/> <div class="education-place-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="quality-date"> <div class="quality"> <label for="">ხარისხი</label> <select class="select-quality" name="" id=""> <option value="" disabled selected>აირჩიე ხარისხი</option> </select> </div><div class="end-date"> <label for="">დამთავრების რიცხვი</label> <input type="date" class="quality-end-date"/> </div></div><div class="text-area-third"> <label for="">აღწერა</label> <textarea name="" id="" class="third-area-input"></textarea> </div></form>`
+  );
+});
 
 const errors = [
   "educationPlaceInput",
@@ -213,6 +223,10 @@ qualityInput.addEventListener("change", function (e) {
     if (index < 0) return;
     errors.splice(index, 1);
   }
+});
+
+previousPage.addEventListener("click", function () {
+  window.location.href = "experience.html";
 });
 
 clearStorage.addEventListener("click", function () {

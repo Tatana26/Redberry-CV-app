@@ -29,6 +29,7 @@ const nextPageBtn = document.querySelector(".next-page-btn");
 const forms = document.querySelector(".forms");
 const CV = document.querySelector("#general-right");
 const secondPartCv = document.querySelector(".cv-part-second");
+const previousPage = document.querySelector(".btn-previous-page");
 
 const nameValue = localStorage.getItem("nameValue") || "";
 const surnameValue = localStorage.getItem("surnameValue") || "";
@@ -68,25 +69,20 @@ const errors = [
 ];
 
 addMoreInfo.addEventListener("click", function () {
-  formCount++;
+  // formCount++;
 
   forms.insertAdjacentHTML(
     "beforeend",
-    `<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input-${formCount} position-input"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>`
+    `<form action=""> <div class="position"> <label class="position-label" for="experience" >თანამდებობა</label > <div class="position-input-div"> <input type="text" class="position-input position-input"/> <div class="position-input-icon"></div></div><p>მინიმუმ 2 სიმბოლო</p></div><div class="employer"> <label class="employer-label" for="employer" >დამსაქმებელი</label > <div class="employer-input-div"> <input type="text" class="employer-input"/> <div class="employer-input-icon"></div></div><p>მინიმუმ ორი სიმბოლო</p></div><div class="work-date"> <div class="start-date date-box"> <label for="date">დაწყების რიცხვი</label> <input type="date" class="date-first"/> </div><div class="end-date date-box"> <label for="date">დამთავრების რიცხვი</label> <input type="date" class="date-second"/> </div></div><div class="about-work"> <label for="about">აღწერა</label> <textarea id="about-work"></textarea> </div></form>`
   );
 
-  secondPartCv.insertAdjacentHTML(
-    "beforeend",
-    `<div class="cv-part-second"> <div class="underline"></div> <div class="position-employer"> <div class="position-heading"></div> <div class="positioning-date"> <div class="log-position "></div> <div class="log-employer"></div> </div> </div> <div class="log-date"> <div class="log-date-first"></div> <div class="log-date-second"></div> </div> <div class="log-second-about"></div>`
-  );
+  // const newPositionInput = document.querySelector(
+  //   `.position-input-${formCount}`
+  // );
 
-  const newPositionInput = document.querySelector(
-    `.position-input-${formCount}`
-  );
-
-  newPositionInput.addEventListener("input", function (e) {
-    validate(e, formCount);
-  });
+  // newPositionInput.addEventListener("input", function (e) {
+  //   validate(e, formCount);
+  // });
 });
 
 window.addEventListener("load", function () {
@@ -137,10 +133,10 @@ window.addEventListener("load", function () {
   }
 });
 
-let formCount = 1;
-function validate(e, count = formCount) {
-  const positionInput = document.querySelector(`.position-input-${count}`);
-  // positionInput.addEventListener("input", function (e) {
+// let formCount = 1;
+// function validate(e, count = formCount) {
+//   const positionInput = document.querySelector(`.position-input-${count}`);
+positionInput.addEventListener("input", function (e) {
   const value = e.target.value;
   logPosition.innerHTML = `${value}${value && ","}`;
   if (value === "") {
@@ -173,13 +169,13 @@ function validate(e, count = formCount) {
     if (index < 0) return;
     errors.splice(index, 1);
   }
-}
+});
 
-function onPositionInputChange(e) {
-  validate(e, 1);
-}
+// function onPositionInputChange(e) {
+//   validate(e, 1);
+// }
 
-positionInput.addEventListener("input", onPositionInputChange);
+// positionInput.addEventListener("input", onPositionInputChange);
 
 employerInput.addEventListener("input", function (e) {
   const value = e.target.value;
@@ -263,6 +259,10 @@ inputSecondTextarea.addEventListener("input", function (e) {
 
 clearStorage.addEventListener("click", function () {
   localStorage.clear();
+});
+
+previousPage.addEventListener("click", function () {
+  window.location.href = "generalInfo.html";
 });
 
 nextPageBtn.addEventListener("click", function () {
